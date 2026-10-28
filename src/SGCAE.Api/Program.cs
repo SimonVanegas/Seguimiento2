@@ -70,6 +70,9 @@ app.MapGet("/swagger", () => Results.Content("""
 
 app.UseHttpsRedirection();
 
+// Redirigir la raíz hacia Swagger UI
+app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
+
 app.UseAuthorization();
 
 app.MapControllers();
