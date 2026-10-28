@@ -164,3 +164,4 @@
 /Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Api/obj/Debug/net10.0/SGCAE.Api.pdb
 /Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Api/obj/Debug/net10.0/SGCAE.Api.genruntimeconfig.cache
 /Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Api/obj/Debug/net10.0/ref/SGCAE.Api.dll
+/Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Api/obj/Debug/net10.0/SGCAE.Api.sourcelink.json

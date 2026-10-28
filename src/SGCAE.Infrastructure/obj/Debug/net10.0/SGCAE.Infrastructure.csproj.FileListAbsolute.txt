@@ -17,3 +17,4 @@
 /Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Infrastructure/obj/Debug/net10.0/SGCAE.Infrastructure.pdb
 /Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Infrastructure/obj/Debug/net10.0/SGCAE.Infrastructure.genruntimeconfig.cache
 /Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Infrastructure/obj/Debug/net10.0/ref/SGCAE.Infrastructure.dll
+/Users/simonv/Documents/Simon/Uni/Programacion distribuida/Entregable 2/src/SGCAE.Infrastructure/obj/Debug/net10.0/SGCAE.Infrastructure.sourcelink.json

@@ -29,10 +29,13 @@ Organicé la solución en cuatro proyectos independientes respetando la regla de
 
 ## Cómo ejecutar el proyecto
 
-1. Configuro la cadena de conexión de mi instancia de **SQL Server** en `src/SGCAE.Api/appsettings.json` (`ConnectionStrings:DefaultConnection`).
+1. Inicio mi contenedor de **SQL Server** con Docker:
+   ```bash
+   docker compose up -d
+   ```
 2. Ejecuto la API desde la raíz de la solución:
    ```bash
    dotnet run --project src/SGCAE.Api
    ```
-   *(Al iniciar, configuré la aplicación para que aplique automáticamente las migraciones de Entity Framework Core y cree la base de datos `SgcaeDb` si aún no existe).*
-3. Abro la documentación interactiva en `http://localhost:5092/swagger` o utilizo las peticiones de prueba que dejé listas en `src/SGCAE.Api/SGCAE.Api.http`.
+   *(Al iniciar, la aplicación aplica automáticamente las migraciones de Entity Framework Core y crea la base de datos `SgcaeDb` con todas sus tablas si aún no existen).*
+3. Abro la documentación interactiva en `http://localhost:5092/swagger` o ejecuto las peticiones de prueba que dejé en `src/SGCAE.Api/SGCAE.Api.http`.
