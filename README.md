@@ -1,4 +1,4 @@
-# Sistema de Gestión y Control de Acceso de Empleados (SGCAE)
+# Sistema de Gestión y Control de Acceso de Empleados
 
 Desarrollé este backend en **ASP.NET Core Web API** para gestionar y controlar el ingreso y salida de los empleados en las instalaciones de la organización, reemplazando el registro manual en planillas y hojas de cálculo por un sistema centralizado y trazable.
 
