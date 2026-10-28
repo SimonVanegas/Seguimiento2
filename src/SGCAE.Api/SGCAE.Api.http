@@ -1,0 +1,123 @@
+@SGCAE_HostAddress = http://localhost:5092
+
+### =========================================================================
+### RF-06: Administración de puntos de acceso
+### =========================================================================
+
+### 1. Registrar punto de acceso (Recepción - Habilitado)
+POST {{SGCAE_HostAddress}}/api/puntos-acceso
+Content-Type: application/json
+
+{
+  "nombre": "Recepción Principal",
+  "descripcion": "Ingreso principal de la sede logística",
+  "esAreaRestringida": false,
+  "habilitado": true
+}
+
+### 2. Registrar punto de acceso (Bodega de Almacenamiento - Área Restringida)
+POST {{SGCAE_HostAddress}}/api/puntos-acceso
+Content-Type: application/json
+
+{
+  "nombre": "Bodega Central",
+  "descripcion": "Área restringida de almacenamiento logístico",
+  "esAreaRestringida": true,
+  "habilitado": true
+}
+
+### 3. Consultar puntos de acceso (identificando cuáles están habilitados)
+GET {{SGCAE_HostAddress}}/api/puntos-acceso?soloHabilitados=true
+Accept: application/json
+
+
+### =========================================================================
+### RF-01: Gestión de empleados
+### =========================================================================
+
+### 4. Registrar empleado
+POST {{SGCAE_HostAddress}}/api/empleados
+Content-Type: application/json
+
+{
+  "identificacion": "1020304050",
+  "nombres": "Carlos Andrés",
+  "apellidos": "Ramírez Gómez",
+  "correoElectronico": "carlos.ramirez@logistica.com",
+  "cargo": "Supervisor de Bodega",
+  "areaOrganizacional": "Operaciones Logísticas"
+}
+
+### 5. Consultar todos los empleados
+GET {{SGCAE_HostAddress}}/api/empleados
+Accept: application/json
+
+### 6. Actualizar empleado (Reemplazar {empleadoId} con el ID retornado)
+PUT {{SGCAE_HostAddress}}/api/empleados/00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+
+{
+  "nombres": "Carlos Andrés",
+  "apellidos": "Ramírez Gómez",
+  "correoElectronico": "carlos.ramirez@logistica.com",
+  "cargo": "Jefe de Almacenamiento",
+  "areaOrganizacional": "Operaciones Logísticas"
+}
+
+### 7. Desactivar empleado (Reemplazar {empleadoId} con el ID retornado)
+PATCH {{SGCAE_HostAddress}}/api/empleados/00000000-0000-0000-0000-000000000000/desactivar
+Accept: application/json
+
+
+### =========================================================================
+### RF-02: Gestión de credenciales
+### =========================================================================
+
+### 8. Asignar credencial a empleado (Reemplazar empleadoId)
+POST {{SGCAE_HostAddress}}/api/credenciales
+Content-Type: application/json
+
+{
+  "empleadoId": "00000000-0000-0000-0000-000000000000",
+  "codigo": "CRED-EMP-001"
+}
+
+### 9. Consultar estado de credencial
+GET {{SGCAE_HostAddress}}/api/credenciales/CRED-EMP-001
+Accept: application/json
+
+### 10. Bloquear credencial
+PATCH {{SGCAE_HostAddress}}/api/credenciales/CRED-EMP-001/bloquear
+Accept: application/json
+
+### 11. Revocar credencial
+PATCH {{SGCAE_HostAddress}}/api/credenciales/CRED-EMP-001/revocar
+Accept: application/json
+
+
+### =========================================================================
+### RF-03: Registro de entradas y salidas
+### =========================================================================
+
+### 12. Registrar entrada o salida (Reemplazar puntoAccesoId)
+POST {{SGCAE_HostAddress}}/api/accesos
+Content-Type: application/json
+
+{
+  "codigoCredencial": "CRED-EMP-001",
+  "puntoAccesoId": "00000000-0000-0000-0000-000000000000",
+  "tipoMovimiento": "Entrada"
+}
+
+
+### =========================================================================
+### RF-04: Consulta del historial de accesos (Paginado y con filtros)
+### =========================================================================
+
+### 13. Consultar historial paginado
+GET {{SGCAE_HostAddress}}/api/accesos/historial?pageNumber=1&pageSize=10
+Accept: application/json
+
+### 14. Consultar historial filtrado por resultado (Autorizado o Rechazado)
+GET {{SGCAE_HostAddress}}/api/accesos/historial?resultado=Rechazado&pageNumber=1&pageSize=10
+Accept: application/json
